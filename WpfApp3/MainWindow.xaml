@@ -1,0 +1,43 @@
+﻿<Window x:Class="WpfApp3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="1000">
+    <Grid>
+        <TextBlock x:Name="Title" HorizontalAlignment="Center" Height="125" Margin="0,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="428" TextAlignment="Center" FontSize="26" FontWeight="Bold" Foreground="#FF252A47"><Run Language="ko-kr" Text="시간 지키미 ( TimeKeeper )"/></TextBlock>
+        <TextBlock x:Name="Title_Copy" HorizontalAlignment="Center" Height="125" Margin="0,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="428" TextAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="#FF101747"><Run Language="ko-kr" Text="내 시간은 내가 지키는 습관으로"/></TextBlock>
+        <Button x:Name="Main_Btn1" Content="앱 가이드" HorizontalAlignment="Center" Height="50" Margin="0,200,0,0" VerticalAlignment="Top" Width="450" Background="#FF213094" Foreground="White" FontWeight="Bold" FontSize="20" Click="Main_Btn1_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Button.Resources>
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Button x:Name="Main_Btn2" Content="알림 대시보드" HorizontalAlignment="Center" Height="50" Margin="0,280,0,0" VerticalAlignment="Top" Width="450" Background="#FF2C40C7" Foreground="White" FontWeight="Bold" FontSize="20" Click="Main_Btn2_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Button.Resources>
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Button x:Name="Main_Btn3" Content="PC 사용 분석" HorizontalAlignment="Center" Height="50" Margin="0,360,0,0" VerticalAlignment="Top" Width="450" Background="#FF4257E0" Foreground="White" FontWeight="Bold" FontSize="20" Click="Main_Btn3_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Button.Resources>
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+    </Grid>
+</Window>
