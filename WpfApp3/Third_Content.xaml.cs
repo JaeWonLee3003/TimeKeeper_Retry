@@ -28,57 +28,32 @@ namespace WpfApp3
 
         public class SerchTime
         {
-
             // 처음 입력한 시간과 비교할 현재의 시,분,초 를 입력 받을 변수들을 전역 변수로 선언 한다.            
-            public int SetSerchHour, SetSerchMin, SetSerchSec;
-
-            /// <summary>
-            /// 시작 시 SetStartTime 메서드를 사용하여 각 값마다 시,분,초 를 입력 받는다.
-            /// </summary>
-            public void SetSerchTime()
-            {
-                SetSerchHour = int.Parse(DateTime.Now.ToString("HH"));
-                SetSerchMin = int.Parse(DateTime.Now.ToString("mm"));
-                SetSerchSec = int.Parse(DateTime.Now.ToString("ss"));
-            }
-
+            public int SetSerchHour = int.Parse(DateTime.Now.ToString("HH"));
+            public int SetSerchMin = int.Parse(DateTime.Now.ToString("mm"));
+            public int SetSerchSec = int.Parse(DateTime.Now.ToString("ss"));
         }
-
-        public static void init()
+        public void init()
         {
-
             SerchTime serchTime = new SerchTime();
-            StartTime startTime = new StartTime();
-
-            serchTime.SetSerchTime();
 
             // 시작 시 분 초 에서 현재 시 분 초를 뺀다.
             // 10 : 43 : 10
             // 10 : 43 : 20
-            int ResultHour = serchTime.SetSerchHour - startTime.SetStartHour;
-            Console.WriteLine(startTime.SetStartHour);
-            int ResultMin = serchTime.SetSerchMin - startTime.SetStartMin;
-            Console.WriteLine(startTime.SetStartMin);
-            int ResultSec = serchTime.SetSerchSec - startTime.SetStartSec;
-            Console.WriteLine(startTime.SetStartSec);
+            /*int ResultHour = serchTime.SetSerchHour - setTime.SetStartHour;
+            int ResultMin = serchTime.SetSerchMin - setTime.SetStartMin;
+            int ResultSec = serchTime.SetSerchSec - setTime.SetStartSec;
 
-
-            // 
-            if (ResultSec < 0)
-            {
-                ResultMin -= 1;
-                if(ResultMin < 0)
-                {
-                    ResultHour -= 1;
-                    if(ResultHour < 0)
-                    {
-                        ResultHour -= 1;
-                    }
-                }
-            }
-
-
-
+            // 시작 시간
+            PcPlusTime.Text = setTime.SetStartHour.ToString();
+            PcPlusTime2.Text = setTime.SetStartMin.ToString();
+            PcPlusTime3.Text = setTime.SetStartSec.ToString();
+            // 현재 시간
+            PcPlusTime11.Text = serchTime.SetSerchHour.ToString();
+            PcPlusTime22.Text = serchTime.SetSerchMin.ToString();
+            PcPlusTime33.Text = serchTime.SetSerchSec.ToString();*/
         }
+
+        
     }
 }

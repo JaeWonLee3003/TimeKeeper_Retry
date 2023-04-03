@@ -5,13 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp3"
         mc:Ignorable="d"
-        Title="Third_Content" Height="450" Width="800">
+        Title="PcUseData" Height="450" Width="800">
     <Grid>
-        <Image Margin="151,63,358,102" Source="/PC.png" Stretch="Fill"/>
-        <TextBlock HorizontalAlignment="Left" Height="94" Margin="459,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204"><Run Language="ko-kr" Text="오늘 총 PC를 사용한 시간"/><LineBreak/><Run Language="ko-kr"/></TextBlock>
-        <TextBlock x:Name="HourTB" HorizontalAlignment="Left" Height="94" Margin="459,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="204" Foreground="Black" Background="White"><Run Language="ko-kr" Text=""/><LineBreak/><Run Language="ko-kr"/></TextBlock>
-        <TextBlock x:Name="MinTB" HorizontalAlignment="Left" Height="94" Margin="501,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="204" Foreground="Black" Background="White"><Run Language="ko-kr" Text=""/><LineBreak/><Run Language="ko-kr"/></TextBlock>
-        <TextBlock x:Name="SecTB" HorizontalAlignment="Left" Height="94" Margin="548,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="204" Foreground="Black" Background="White"><Run Language="ko-kr" Text=""/><LineBreak/><Run Language="ko-kr"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="451,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="51" Width="227"><Run Language="ko-kr" Text="TimeKeeper를 킨 시간 이후로 부터 "/><LineBreak/><Run Language="ko-kr" Text="사용한 시간 : "/></TextBlock>
+        <TextBlock x:Name="PcPlusTime" HorizontalAlignment="Left" Height="14" Margin="525,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69"><Run Language="ko-kr" Text="0s"/></TextBlock>
+        <TextBlock x:Name="PcPlusTime2" HorizontalAlignment="Left" Height="14" Margin="525,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69"><Run Language="ko-kr" Text="0s"/></TextBlock>
+        <TextBlock x:Name="PcPlusTime3" HorizontalAlignment="Left" Height="14" Margin="525,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69"><Run Language="ko-kr" Text="0s"/></TextBlock>
+        <TextBlock x:Name="PcPlusTime11" HorizontalAlignment="Left" Height="14" Margin="571,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69"><Run Language="ko-kr" Text="0s"/></TextBlock>
+        <TextBlock x:Name="PcPlusTime22" HorizontalAlignment="Left" Height="14" Margin="571,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69"><Run Language="ko-kr" Text="0s"/></TextBlock>
+        <TextBlock x:Name="PcPlusTime33" HorizontalAlignment="Left" Height="14" Margin="571,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69"><Run Language="ko-kr" Text="0s"/></TextBlock>
 
     </Grid>
 </Window>

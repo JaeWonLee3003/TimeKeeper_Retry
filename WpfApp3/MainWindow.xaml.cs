@@ -21,40 +21,26 @@ namespace WpfApp3
     /// </summary>
     public partial class MainWindow : Window
     {
+        private int setStartHour;
+        private int setStartMin;
+        private int setStartSec;
+
         public MainWindow()
         {
             InitializeComponent();
-            StartApp(); // 이 App 을 실행 했을 때 첫번째로 실행 되는 함수 
-        }
-
-        /// <summary>
-        /// TimeKeeper 앱을 켠 시간을 값을 저장하는 클래스
-        /// </summary>
-        public class StartTime
-        {
-
-            // 시,분,초 를 입력 받을 변수들을 전역 변수로 선언 한다.            
-            public int SetStartHour, SetStartMin, SetStartSec;
-
-            /// <summary>
-            /// 시작 시 SetStartTime 메서드를 사용하여 각 값마다 시,분,초 를 입력 받는다.
-            /// </summary>
-            public void SetStartTime()
-            {
-                SetStartHour = int.Parse(DateTime.Now.ToString("HH"));
-                SetStartMin = int.Parse(DateTime.Now.ToString("mm"));
-                SetStartSec = int.Parse(DateTime.Now.ToString("ss"));
-            }
+            StartApp();
 
         }
-        /// <summary>
-        /// TimeKeeper 앱 실행 시 시작 되는 메인 메서드
-        /// </summary>
+
+        //StartApp(); // 이 App 을 실행 했을 때 첫번째로 실행 되는 함수 
+
         public void StartApp()
         {
-            StartTime startTime = new StartTime();
-            startTime.SetStartTime();
+            int SetStartHour = int.Parse(DateTime.Now.ToString("HH"));
+            int SetStartMin = int.Parse(DateTime.Now.ToString("mm"));
+            int SetStartSec = int.Parse(DateTime.Now.ToString("ss"));
         }
+
 
         /// <summary>
         /// 메인 버튼 중 "앱 가이드" 창으로 넘어가는 버튼
