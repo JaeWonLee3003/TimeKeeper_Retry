@@ -28,19 +28,30 @@ namespace WpfApp3
         public Third_Content(int setStartHour, int setStartMin, int setStartSec)
         {
             InitializeComponent();
-            init();
             startHour = setStartHour;
             startMin = setStartMin;
             startSec = setStartSec;
+            init();
         }
 
         public class SerchTime
         {
             // 처음 입력한 시간과 비교할 현재의 시,분,초 를 입력 받을 변수들을 전역 변수로 선언 한다.            
-            public int SetSerchHour = int.Parse(DateTime.Now.ToString("HH"));
-            public int SetSerchMin = int.Parse(DateTime.Now.ToString("mm"));
-            public int SetSerchSec = int.Parse(DateTime.Now.ToString("ss"));
+            public int SetSerchHour = DateTime.Now.Hour;
+            public int SetSerchMin = DateTime.Now.Minute;
+            public int SetSerchSec = DateTime.Now.Second;
+
+            public void CalculateElapsed(int startHour, int startMin, int startSec)
+            {
+                // 시작 시 분 초 에서 현재 시 분 초를 뺀다.
+                int ResultHour = SetSerchHour - startHour;
+                int ResultMin = SetSerchMin - startMin;
+                int ResultSec = SetSerchSec - startSec;
+
+
+            }
         }
+
         public void init()
         {
             SerchTime serchTime = new SerchTime();
@@ -61,7 +72,5 @@ namespace WpfApp3
             PcPlusTime22.Text = serchTime.SetSerchMin.ToString();
             PcPlusTime33.Text = serchTime.SetSerchSec.ToString();
         }
-
-        
     }
 }
