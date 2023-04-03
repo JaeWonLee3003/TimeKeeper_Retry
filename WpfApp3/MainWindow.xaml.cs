@@ -36,9 +36,9 @@ namespace WpfApp3
 
         public void StartApp()
         {
-            int SetStartHour = int.Parse(DateTime.Now.ToString("HH"));
-            int SetStartMin = int.Parse(DateTime.Now.ToString("mm"));
-            int SetStartSec = int.Parse(DateTime.Now.ToString("ss"));
+             setStartHour = int.Parse(DateTime.Now.ToString("HH"));
+             setStartMin = int.Parse(DateTime.Now.ToString("mm"));
+             setStartSec = int.Parse(DateTime.Now.ToString("ss"));
         }
 
 
@@ -71,7 +71,7 @@ namespace WpfApp3
         /// <param name="e"></param>
         private void Main_Btn3_Click(object sender, RoutedEventArgs e)
         {
-            WpfApp3.Third_Content Main_Btn3_Click = new WpfApp3.Third_Content();
+            WpfApp3.Third_Content Main_Btn3_Click = new WpfApp3.Third_Content(setStartHour, setStartMin, setStartSec);
             Main_Btn3_Click.ShowDialog(); // 창을 닫기전에 이전 앱을 닫지 못함.
         }
     }

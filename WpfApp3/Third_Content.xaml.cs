@@ -20,10 +20,18 @@ namespace WpfApp3
     /// </summary>
     public partial class Third_Content : Window
     {
-        public Third_Content()
+
+        private int startHour;
+        private int startMin;
+        private int startSec;
+
+        public Third_Content(int setStartHour, int setStartMin, int setStartSec)
         {
             InitializeComponent();
             init();
+            startHour = setStartHour;
+            startMin = setStartMin;
+            startSec = setStartSec;
         }
 
         public class SerchTime
@@ -40,18 +48,18 @@ namespace WpfApp3
             // 시작 시 분 초 에서 현재 시 분 초를 뺀다.
             // 10 : 43 : 10
             // 10 : 43 : 20
-            /*int ResultHour = serchTime.SetSerchHour - setTime.SetStartHour;
-            int ResultMin = serchTime.SetSerchMin - setTime.SetStartMin;
-            int ResultSec = serchTime.SetSerchSec - setTime.SetStartSec;
+            int ResultHour = serchTime.SetSerchHour - startHour;
+            int ResultMin = serchTime.SetSerchMin - startMin;
+            int ResultSec = serchTime.SetSerchSec - startSec;
 
             // 시작 시간
-            PcPlusTime.Text = setTime.SetStartHour.ToString();
-            PcPlusTime2.Text = setTime.SetStartMin.ToString();
-            PcPlusTime3.Text = setTime.SetStartSec.ToString();
+            PcPlusTime.Text = startHour.ToString();
+            PcPlusTime2.Text = startMin.ToString();
+            PcPlusTime3.Text = startSec.ToString();
             // 현재 시간
             PcPlusTime11.Text = serchTime.SetSerchHour.ToString();
             PcPlusTime22.Text = serchTime.SetSerchMin.ToString();
-            PcPlusTime33.Text = serchTime.SetSerchSec.ToString();*/
+            PcPlusTime33.Text = serchTime.SetSerchSec.ToString();
         }
 
         

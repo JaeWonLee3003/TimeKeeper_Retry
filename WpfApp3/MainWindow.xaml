@@ -7,9 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="550" Width="1000">
     <Grid>
-        <TextBlock x:Name="Title" HorizontalAlignment="Center" Height="125" Margin="0,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="428" TextAlignment="Center" FontSize="26" FontWeight="Bold" Foreground="#FF252A47"><Run Language="ko-kr" Text="시간 지키미 ( TimeKeeper )"/></TextBlock>
-        <TextBlock x:Name="Title_Copy" HorizontalAlignment="Center" Height="125" Margin="0,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="428" TextAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="#FF101747"><Run Language="ko-kr" Text="내 시간은 내가 지키는 습관으로"/></TextBlock>
-        <Button x:Name="Main_Btn1" Content="앱 가이드" HorizontalAlignment="Center" Height="50" Margin="0,200,0,0" VerticalAlignment="Top" Width="450" Background="#FF213094" Foreground="White" FontWeight="Bold" FontSize="20" Click="Main_Btn1_Click">
+        <TextBlock x:Name="title2" HorizontalAlignment="Center" Height="125" Margin="0,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="428" TextAlignment="Center" FontSize="26" FontWeight="Bold" Foreground="#FF252A47"><Run Language="ko-kr" Text="시간 지키미 ( TimeKeeper )"/></TextBlock>
+        <Button x:Name="Main_Btn1" Content="앱 가이드" Height="50" Margin="0,200,0,0" VerticalAlignment="Top" Width="450" Background="#FF213094" Foreground="White" FontWeight="Bold" FontSize="20" Click="Main_Btn1_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20"/>
