@@ -1,18 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace WpfApp3
 {
@@ -31,8 +19,6 @@ namespace WpfApp3
             StartApp();
 
         }
-
-        //StartApp(); // 이 App 을 실행 했을 때 첫번째로 실행 되는 함수 
 
         public void StartApp()
         {

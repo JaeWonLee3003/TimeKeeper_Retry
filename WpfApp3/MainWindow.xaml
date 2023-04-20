@@ -5,38 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp3"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="1000">
+        Title="MainWindow" Height="950" Width="1200">
     <Grid>
-        <TextBlock x:Name="title2" HorizontalAlignment="Center" Height="125" Margin="0,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="428" TextAlignment="Center" FontSize="26" FontWeight="Bold" Foreground="#FF252A47"><Run Language="ko-kr" Text="시간 지키미 ( TimeKeeper )"/></TextBlock>
-        <Button x:Name="Main_Btn1" Content="앱 가이드" Height="50" Margin="0,200,0,0" VerticalAlignment="Top" Width="450" Background="#FF213094" Foreground="White" FontWeight="Bold" FontSize="20" Click="Main_Btn1_Click">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="20"/>
-                </Style>
-            </Button.Resources>
-            <Button.BorderBrush>
-                <ImageBrush/>
-            </Button.BorderBrush>
-        </Button>
-        <Button x:Name="Main_Btn2" Content="알림 대시보드" HorizontalAlignment="Center" Height="50" Margin="0,280,0,0" VerticalAlignment="Top" Width="450" Background="#FF2C40C7" Foreground="White" FontWeight="Bold" FontSize="20" Click="Main_Btn2_Click">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="20"/>
-                </Style>
-            </Button.Resources>
-            <Button.BorderBrush>
-                <ImageBrush/>
-            </Button.BorderBrush>
-        </Button>
-        <Button x:Name="Main_Btn3" Content="PC 사용 분석" HorizontalAlignment="Center" Height="50" Margin="0,360,0,0" VerticalAlignment="Top" Width="450" Background="#FF4257E0" Foreground="White" FontWeight="Bold" FontSize="20" Click="Main_Btn3_Click">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="20"/>
-                </Style>
-            </Button.Resources>
-            <Button.BorderBrush>
-                <ImageBrush/>
-            </Button.BorderBrush>
-        </Button>
+        <Border BorderThickness="1" HorizontalAlignment="Left" Height="950
+                " VerticalAlignment="Top" Width="200 " Margin="-1,-15,0,0" Background="Black"/>
+        <Border BorderThickness="1" HorizontalAlignment="Left" Height="950" VerticalAlignment="Top" Width="1006" Margin="197,-15,0,0" Background="#FFA5A5A5"/>
+        <TextBlock x:Name="title2" HorizontalAlignment="Left" Height="59" Margin="22,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" TextAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White"><Run Text="시간 지키미"/><LineBreak/><Run Text=" ( TimeKeeper )"/></TextBlock>
+        <Button x:Name="Main_Btn1" Content="앱 가이드" HorizontalAlignment="Left" Height="50" Margin="-1,190,0,0" VerticalAlignment="Top" Width="200" Background="#FF213094" Foreground="White" FontWeight="Bold" FontSize="20" Click="Main_Btn1_Click" BorderBrush="{x:Null}" />
+        <Button x:Name="Main_Btn2" Content="알림 대시보드" HorizontalAlignment="Left" Height="50" Margin="-1,240,0,0" VerticalAlignment="Top" Width="200" Background="#FF2C40C7" Foreground="White" FontWeight="Bold" FontSize="20" Click="Main_Btn2_Click" BorderBrush="{x:Null}" />
+        <Button x:Name="Main_Btn3" Content="PC 사용 분석" HorizontalAlignment="Left" Height="50" Margin="-1,290,0,0" VerticalAlignment="Top" Width="200" Background="White" Foreground="Black" FontWeight="Bold" FontSize="20" Click="Main_Btn3_Click" BorderBrush="{x:Null}" />
     </Grid>
 </Window>
