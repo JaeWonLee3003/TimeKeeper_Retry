@@ -44,14 +44,14 @@ namespace WpfApp3
             var textBlock = new TextBlock();
             textBlock.Text = "앱 가이드";
             textBlock.FontSize = 20;
-            textBlock.Margin = new Thickness(20, 20, 0, 0);
+            textBlock.Margin = new Thickness(20, 40, 0, 0);
             textBlock.VerticalAlignment = VerticalAlignment.Top;
             textBlock.HorizontalAlignment = HorizontalAlignment.Left;
             dashboard.Children.Add(textBlock);
 
             // 그리드에 리스트박스 추가
             var listBox = new ListBox();
-            listBox.Margin = new Thickness(20, 60, 20, 30);
+            listBox.Margin = new Thickness(0, 80, 0, 0);
             // listBox.ItemsSource = notificationList; // notificationList는 알림 목록 리스트입니다.
             dashboard.Children.Add(listBox);
 
