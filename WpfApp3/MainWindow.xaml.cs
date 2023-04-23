@@ -16,6 +16,8 @@ namespace WpfApp3
         private int setStartMin;
         private int setStartSec;
 
+        private DateTime startTime;
+
         private Grid dashboard; // dashboard 필드 추가
 
         public MainWindow()
@@ -95,10 +97,10 @@ namespace WpfApp3
         /// <summary>
         /// PC 사용 시간을 구현해주는 메서드
         /// </summary>
-        private void CreatePCtime()
+        private void CreatePCtime(DateTime startTime)
         {
             // 그리드 생성
-            dashboard = new Grid();
+            var dashboard = new Grid();
 
             // 그리드에 텍스트블록 추가
             var textBlock = new TextBlock();
@@ -109,7 +111,26 @@ namespace WpfApp3
             textBlock.HorizontalAlignment = HorizontalAlignment.Left;
             dashboard.Children.Add(textBlock);
 
-            
+            // 알림 목록 생성
+            var listView = new ListView();
+            listView.Margin = new Thickness(20, 60, 20, 20);
+            dashboard.Children.Add(listView);
+
+            // 알림 목록 아이템 추가
+            listView.Items.Add("알림 1");
+            listView.Items.Add("알림 2");
+            listView.Items.Add("알림 3");
+
+            // 시간확인하기 버튼 생성
+            var checkTimeButton = new Button();
+            checkTimeButton.Content = "시간확인하기";
+            checkTimeButton.Margin = new Thickness(20, 180, 0, 0);
+            checkTimeButton.Click += (sender, e) =>
+            {
+                TimeSpan pcUsageTime = DateTime.Now - startTime;
+                MessageBox.Show($"PC 사용 시간: {pcUsageTime.Hours}시간 {pcUsageTime.Minutes}분 {pcUsageTime.Seconds}초");
+            };
+            dashboard.Children.Add(checkTimeButton);
 
             // Border에 그리드 추가
             if (Body != null)
@@ -149,7 +170,9 @@ namespace WpfApp3
         /// <param name="e"></param>
         private void Main_Btn3_Click(object sender, RoutedEventArgs e)
         {
-            CreatePCtime();
+
+
+            CreatePCtime(startTime = DateTime.Now;);
             Body.Child = dashboard;
             //WpfApp3.Third_Content Main_Btn3_Click = new WpfApp3.Third_Content(setStartHour, setStartMin, setStartSec);
             //Main_Btn3_Click.ShowDialog(); // 창을 닫기전에 이전 앱을 닫지 못함.
