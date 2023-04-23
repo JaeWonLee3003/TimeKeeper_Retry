@@ -170,9 +170,9 @@ namespace WpfApp3
         /// <param name="e"></param>
         private void Main_Btn3_Click(object sender, RoutedEventArgs e)
         {
+            startTime = DateTime.Now;
 
-
-            CreatePCtime(startTime = DateTime.Now;);
+            CreatePCtime();
             Body.Child = dashboard;
             //WpfApp3.Third_Content Main_Btn3_Click = new WpfApp3.Third_Content(setStartHour, setStartMin, setStartSec);
             //Main_Btn3_Click.ShowDialog(); // 창을 닫기전에 이전 앱을 닫지 못함.
