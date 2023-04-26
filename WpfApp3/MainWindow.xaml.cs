@@ -12,9 +12,7 @@ namespace WpfApp3
     /// </summary>
     public partial class MainWindow : Window
     {
-        private int setStartHour;
-        private int setStartMin;
-        private int setStartSec;
+        
 
         private DateTime startTime;
 
@@ -23,15 +21,7 @@ namespace WpfApp3
         public MainWindow()
         {
             InitializeComponent();
-            StartApp();
-
-        }
-
-        public void StartApp()
-        {
-            setStartHour = DateTime.Now.Hour;
-            setStartMin = DateTime.Now.Minute;
-            setStartSec = DateTime.Now.Second;
+            startTime = DateTime.Now;
         }
 
         /// <summary>
@@ -99,38 +89,29 @@ namespace WpfApp3
         /// </summary>
         private void CreatePCtime(DateTime startTime)
         {
-            // 그리드 생성
-            var dashboard = new Grid();
+            // PC 사용 시간을 구합니다.
+            TimeSpan pcTime = DateTime.Now.Subtract(startTime);
 
-            // 그리드에 텍스트블록 추가
+            // 그리드 생성
+            dashboard = new Grid();
+
+            // 그리드에 텍스트블럭 추가
             var textBlock = new TextBlock();
-            textBlock.Text = "PC 사용 분석";
+            textBlock.Text = "PC 사용 시간";
             textBlock.FontSize = 20;
             textBlock.Margin = new Thickness(20, 20, 0, 0);
             textBlock.VerticalAlignment = VerticalAlignment.Top;
             textBlock.HorizontalAlignment = HorizontalAlignment.Left;
             dashboard.Children.Add(textBlock);
 
-            // 알림 목록 생성
-            var listView = new ListView();
-            listView.Margin = new Thickness(20, 60, 20, 20);
-            dashboard.Children.Add(listView);
-
-            // 알림 목록 아이템 추가
-            listView.Items.Add("알림 1");
-            listView.Items.Add("알림 2");
-            listView.Items.Add("알림 3");
-
-            // 시간확인하기 버튼 생성
-            var checkTimeButton = new Button();
-            checkTimeButton.Content = "시간확인하기";
-            checkTimeButton.Margin = new Thickness(20, 180, 0, 0);
-            checkTimeButton.Click += (sender, e) =>
-            {
-                TimeSpan pcUsageTime = DateTime.Now - startTime;
-                MessageBox.Show($"PC 사용 시간: {pcUsageTime.Hours}시간 {pcUsageTime.Minutes}분 {pcUsageTime.Seconds}초");
-            };
-            dashboard.Children.Add(checkTimeButton);
+            // 그리드에 사용 시간을 표시하는 텍스트블럭 추가
+            var pcTimeTextBlock = new TextBlock();
+            pcTimeTextBlock.Text = "PC 사용 시간: " + pcTime.ToString(@"hh\:mm\:ss");
+            pcTimeTextBlock.FontSize = 16;
+            pcTimeTextBlock.Margin = new Thickness(20, 60, 0, 0);
+            pcTimeTextBlock.VerticalAlignment = VerticalAlignment.Top;
+            pcTimeTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
+            dashboard.Children.Add(pcTimeTextBlock);
 
             // Border에 그리드 추가
             if (Body != null)
@@ -170,13 +151,7 @@ namespace WpfApp3
         /// <param name="e"></param>
         private void Main_Btn3_Click(object sender, RoutedEventArgs e)
         {
-            startTime = DateTime.Now;
-
-            CreatePCtime();
-            Body.Child = dashboard;
-            //WpfApp3.Third_Content Main_Btn3_Click = new WpfApp3.Third_Content(setStartHour, setStartMin, setStartSec);
-            //Main_Btn3_Click.ShowDialog(); // 창을 닫기전에 이전 앱을 닫지 못함.
-
+            CreatePCtime(startTime);
         }
     }
 }
