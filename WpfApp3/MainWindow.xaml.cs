@@ -2,7 +2,9 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Forms;
 using System.Collections.Generic;
+
 
 
 namespace WpfApp3
@@ -19,6 +21,15 @@ namespace WpfApp3
         {
             InitializeComponent();
             startTime = DateTime.Now;
+
+            // Initialize NotifyIcon
+            notifyIcon = new NotifyIcon();
+            notifyIcon.Icon = new System.Drawing.Icon("path_to_icon.ico"); // Set the path to your icon file
+            notifyIcon.Visible = true;
+            notifyIcon.Text = "My Application"; // Set the tooltip text for the NotifyIcon
+
+            // Handle the NotifyIcon click event
+            notifyIcon.Click += NotifyIcon_Click;
         }
 
         /// <summary>
