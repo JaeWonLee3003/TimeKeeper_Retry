@@ -12,12 +12,9 @@ namespace WpfApp3
     /// </summary>
     public partial class MainWindow : Window
     {
-        
 
         private DateTime startTime;
-
         private Grid dashboard; // dashboard 필드 추가
-
         public MainWindow()
         {
             InitializeComponent();
@@ -89,9 +86,6 @@ namespace WpfApp3
         /// </summary>
         private void CreatePCtime(DateTime startTime)
         {
-            // PC 사용 시간을 구합니다.
-            TimeSpan pcTime = DateTime.Now.Subtract(startTime);
-
             // 그리드 생성
             dashboard = new Grid();
 
@@ -106,7 +100,6 @@ namespace WpfApp3
 
             // 그리드에 사용 시간을 표시하는 텍스트블럭 추가
             var pcTimeTextBlock = new TextBlock();
-            pcTimeTextBlock.Text = "PC 사용 시간: " + pcTime.ToString(@"hh\:mm\:ss");
             pcTimeTextBlock.FontSize = 16;
             pcTimeTextBlock.Margin = new Thickness(20, 60, 0, 0);
             pcTimeTextBlock.VerticalAlignment = VerticalAlignment.Top;
@@ -118,6 +111,21 @@ namespace WpfApp3
             {
                 Body.Child = dashboard;
             }
+
+            // PC 사용 시간을 주기적으로 업데이트하고 출력하는 타이머 생성
+            var timer = new System.Windows.Threading.DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += (sender, e) =>
+            {
+                // PC 사용 시간을 구합니다.
+                TimeSpan pcTime = DateTime.Now.Subtract(startTime);
+
+                // 사용 시간을 텍스트블럭에 업데이트합니다.
+                pcTimeTextBlock.Text = "PC 사용 시간: " + pcTime.ToString(@"hh\:mm\:ss");
+            };
+
+            // 타이머 시작
+            timer.Start();
         }
 
         /// <summary>
@@ -140,8 +148,6 @@ namespace WpfApp3
         {
             CreateDashboard();
             Body.Child = dashboard;
-            //WpfApp3.Second_Content Main_Btn2_Click = new WpfApp3.Second_Content();
-            //Main_Btn2_Click.ShowDialog(); // 창을 닫기전에 이전 앱을 닫지 못함.
         }
 
         /// <summary>
