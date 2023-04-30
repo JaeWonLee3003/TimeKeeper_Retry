@@ -2,8 +2,9 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Windows.Forms;
 using System.Collections.Generic;
+using MySql.Data.MySqlClient;
+using System.Windows.Media.Imaging;
 
 
 
@@ -17,19 +18,13 @@ namespace WpfApp3
 
         private DateTime startTime;
         private Grid dashboard; // dashboard 필드 추가
+
         public MainWindow()
         {
             InitializeComponent();
             startTime = DateTime.Now;
 
-            // Initialize NotifyIcon
-            notifyIcon = new NotifyIcon();
-            notifyIcon.Icon = new System.Drawing.Icon("path_to_icon.ico"); // Set the path to your icon file
-            notifyIcon.Visible = true;
-            notifyIcon.Text = "My Application"; // Set the tooltip text for the NotifyIcon
-
-            // Handle the NotifyIcon click event
-            notifyIcon.Click += NotifyIcon_Click;
+           
         }
 
         /// <summary>
@@ -74,14 +69,14 @@ namespace WpfApp3
             var textBlock = new TextBlock();
             textBlock.Text = "알림 대시보드";
             textBlock.FontSize = 20;
-            textBlock.Margin = new Thickness(20, 20, 0, 0);
+            textBlock.Margin = new Thickness(20, 40, 0, 0);
             textBlock.VerticalAlignment = VerticalAlignment.Top;
             textBlock.HorizontalAlignment = HorizontalAlignment.Left;
             dashboard.Children.Add(textBlock);
 
             // 그리드에 리스트박스 추가
             var listBox = new ListBox();
-            listBox.Margin = new Thickness(10, 60, 20, 20);
+            listBox.Margin = new Thickness(0, 80, 0, 0);
             // listBox.ItemsSource = notificationList; // notificationList는 알림 목록 리스트입니다.
             dashboard.Children.Add(listBox);
 
@@ -100,22 +95,27 @@ namespace WpfApp3
             // 그리드 생성
             dashboard = new Grid();
 
+            // 그리드에 이미지 추가
+            var image = new Image();
+            image.Source = new BitmapImage(new Uri("C:\\Users\\mycom\\Source\\Repos\\JaeWonLee3003\\TimeKeeper_Retry\\WpfApp3\\Images\\PcHelp.png", UriKind.Absolute));
+            image.Margin = new Thickness(20, 80, 0, 0);
+            image.VerticalAlignment = VerticalAlignment.Top;
+            image.HorizontalAlignment = HorizontalAlignment.Left;
+            dashboard.Children.Add(image);
+
             // 그리드에 텍스트블럭 추가
             var textBlock = new TextBlock();
             textBlock.Text = "PC 사용 시간";
             textBlock.FontSize = 20;
-            textBlock.Margin = new Thickness(20, 20, 0, 0);
+            textBlock.Margin = new Thickness(20, 40, 0, 0);
             textBlock.VerticalAlignment = VerticalAlignment.Top;
             textBlock.HorizontalAlignment = HorizontalAlignment.Left;
             dashboard.Children.Add(textBlock);
 
-            // 그리드에 사용 시간을 표시하는 텍스트블럭 추가
-            var pcTimeTextBlock = new TextBlock();
-            pcTimeTextBlock.FontSize = 16;
-            pcTimeTextBlock.Margin = new Thickness(20, 60, 0, 0);
-            pcTimeTextBlock.VerticalAlignment = VerticalAlignment.Top;
-            pcTimeTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
-            dashboard.Children.Add(pcTimeTextBlock);
+            // 그리드에 리스트박스 추가
+            var listBox = new ListBox();
+            listBox.Margin = new Thickness(0, 80, 0, 0);
+            dashboard.Children.Add(listBox);
 
             // Border에 그리드 추가
             if (Body != null)
@@ -123,7 +123,7 @@ namespace WpfApp3
                 Body.Child = dashboard;
             }
 
-            // PC 사용 시간을 주기적으로 업데이트하고 출력하는 타이머 생성
+            // PC 사용 시간을 주기적으로 업데이트하고 리스트 박스에 추가하는 타이머 생성
             var timer = new System.Windows.Threading.DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += (sender, e) =>
@@ -131,13 +131,18 @@ namespace WpfApp3
                 // PC 사용 시간을 구합니다.
                 TimeSpan pcTime = DateTime.Now.Subtract(startTime);
 
-                // 사용 시간을 텍스트블럭에 업데이트합니다.
-                pcTimeTextBlock.Text = "PC 사용 시간: " + pcTime.ToString(@"hh\:mm\:ss");
+                // 사용 시간을 텍스트 형식으로 변환합니다.
+                string pcTimeText = "PC 사용 시간: " + pcTime.ToString(@"hh\:mm\:ss");
+
+                // 리스트 박스에 사용 시간을 추가합니다.
+                listBox.Items.Clear(); // 리스트 박스를 초기화합니다.
+                listBox.Items.Add(pcTimeText); // 사용 시간을 리스트 박스에 추가합니다.
             };
 
             // 타이머 시작
             timer.Start();
         }
+
 
         /// <summary>
         /// 메인 버튼 중 "앱 가이드" 창으로 넘어가는 버튼
@@ -169,6 +174,7 @@ namespace WpfApp3
         private void Main_Btn3_Click(object sender, RoutedEventArgs e)
         {
             CreatePCtime(startTime);
+            Body.Child = dashboard;
         }
     }
 }
