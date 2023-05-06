@@ -24,8 +24,32 @@ namespace WpfApp3
             InitializeComponent();
             startTime = DateTime.Now;
 
-           
+            MySqlConnection connection = new MySqlConnection("Server=localhost;Database=mydatabase;Uid=tseter;Pwd=1234;");
+            
+            connection.Open();
+
+            //쿼리문 작성
+            string query = "SELECT * FROM mytable";
+
+            //쿼리 실행
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                // 데이터 가져오기
+            }
+
+            // 연결 닫기
+            reader.Close();
+            connection.Close();
+
         }
+
+
+
+
 
         /// <summary>
         /// 앱 가이드를 구현해주는 메서드
@@ -77,8 +101,30 @@ namespace WpfApp3
             // 그리드에 리스트박스 추가
             var listBox = new ListBox();
             listBox.Margin = new Thickness(0, 80, 0, 0);
-            // listBox.ItemsSource = notificationList; // notificationList는 알림 목록 리스트입니다.
             dashboard.Children.Add(listBox);
+
+            MySqlConnection connection = new MySqlConnection("Server=localhost;Database=mydatabase;Uid=tseter;Pwd=1234;");
+
+            connection.Open();
+
+            //쿼리문 작성
+            string query = "SELECT * FROM mytable";
+
+            //쿼리 실행
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                // 데이터 가져오기
+                string notification = reader.GetString("notification");
+                listBox.Items.Add(notification);
+            }
+
+            // 연결 닫기
+            reader.Close();
+            connection.Close();
 
             // Border에 그리드 추가
             if (Body != null)
