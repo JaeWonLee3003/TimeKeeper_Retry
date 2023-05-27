@@ -24,30 +24,8 @@ namespace WpfApp3
             InitializeComponent();
             startTime = DateTime.Now;
 
-            MySqlConnection connection = new MySqlConnection("Server=localhost;Database=mydatabase;Uid=tseter;Pwd=1234;");
-            
-            connection.Open();
-
-            //쿼리문 작성
-            string query = "SELECT * FROM mytable";
-
-            //쿼리 실행
-            MySqlCommand command = new MySqlCommand(query, connection);
-
-            MySqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                // 데이터 가져오기
-            }
-
-            // 연결 닫기
-            reader.Close();
-            connection.Close();
 
         }
-
-
 
 
 
@@ -103,34 +81,30 @@ namespace WpfApp3
             listBox.Margin = new Thickness(0, 80, 0, 0);
             dashboard.Children.Add(listBox);
 
-            MySqlConnection connection = new MySqlConnection("Server=localhost;Database=mydatabase;Uid=tseter;Pwd=1234;");
 
-            connection.Open();
-
-            //쿼리문 작성
-            string query = "SELECT * FROM mytable";
-
-            //쿼리 실행
-            MySqlCommand command = new MySqlCommand(query, connection);
-
-            MySqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
+            // "+ 버튼" 생성 및 클릭 이벤트 핸들러 연결
+            var addButton = new Button();
+            addButton.Content = "+";
+            addButton.Margin = new Thickness(0, 160, 0, 0);
+            addButton.HorizontalAlignment = HorizontalAlignment.Left;
+            addButton.VerticalAlignment = VerticalAlignment.Top;
+            addButton.Click += (sender, e) =>
             {
-                // 데이터 가져오기
-                string notification = reader.GetString("notification");
-                listBox.Items.Add(notification);
-            }
+                // 알림 추가 동작 수행
+                AddAlarm(listBox);
+            };
+            dashboard.Children.Add(addButton);
+        }
 
-            // 연결 닫기
-            reader.Close();
-            connection.Close();
+        private void AddAlarm(ListBox listBox)
+        {
+            // 알림 추가 동작 구현
+            // 알림 정보를 입력받고, 리스트 박스에 알림을 추가하는 등의 동작 수행
+            // 예시로 간단하게 알림을 추가하는 메시지를 표시하는 것으로 가정
+            MessageBox.Show("알림이 추가되었습니다.");
 
-            // Border에 그리드 추가
-            if (Body != null)
-            {
-                Body.Child = dashboard;
-            }
+            // 알림을 리스트 박스에 추가하는 코드
+            // listBox.Items.Add(...);
         }
 
         /// <summary>
@@ -141,14 +115,7 @@ namespace WpfApp3
             // 그리드 생성
             dashboard = new Grid();
 
-            // 그리드에 이미지 추가
-            var image = new Image();
-            image.Source = new BitmapImage(new Uri("C:\\Users\\mycom\\Source\\Repos\\JaeWonLee3003\\TimeKeeper_Retry\\WpfApp3\\Images\\PcHelp.png", UriKind.Absolute));
-            image.Margin = new Thickness(20, 80, 0, 0);
-            image.VerticalAlignment = VerticalAlignment.Top;
-            image.HorizontalAlignment = HorizontalAlignment.Left;
-            dashboard.Children.Add(image);
-
+            
             // 그리드에 텍스트블럭 추가
             var textBlock = new TextBlock();
             textBlock.Text = "PC 사용 시간";
