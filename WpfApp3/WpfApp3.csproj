@@ -5,13 +5,20 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Font\Pretendard-Bold.otf" />
+    <None Remove="Font\Pretendard-Light.otf" />
+    <None Remove="Font\Pretendard-Medium.otf" />
     <None Remove="Images\PcHelp.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Font\Pretendard-Bold.otf" />
+    <Resource Include="Font\Pretendard-Light.otf" />
+    <Resource Include="Font\Pretendard-Medium.otf" />
     <Resource Include="Images\PcHelp.png" />
   </ItemGroup>
 

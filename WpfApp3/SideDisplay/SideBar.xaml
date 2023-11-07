@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="WpfApp3.SideDisplay.SideBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp3.SideDisplay"
+             mc:Ignorable="d"
+             Height="100"
+             Width="1200">
+    <!-- <Control.Resources> 
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/WpfApp3;Component/Resources/ControlDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Control.Resources>-->
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Grid.ColumnSpan="2">
+            <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock x:Name="TitleTextBlock" TextAlignment="Center" FontSize="20" Foreground="Black" Text="시간 지키미&#10;Time Keeper" FontFamily="{DynamicResource Pretendard_Bold}"/>
+            </Border>
+        </Grid>
+        <Grid Grid.Column="2">
+            <Button x:Name="Main_Btn1" Content="앱 가이드" FontSize="24" Style="{DynamicResource MainMenuButtonStyle}" FontFamily="{DynamicResource Pretendard_Bold}"/>
+
+        </Grid>
+        <Grid Grid.Column="3">
+            <Button x:Name="Main_Btn2" Content="알림 대시보드" FontSize="24" Style="{DynamicResource MainMenuButtonStyle}" FontFamily="{DynamicResource Pretendard_Bold}"/>
+        </Grid>
+        <Grid Grid.Column="4">
+            <Button x:Name="Main_Btn3" Content="PC 사용 정보" FontSize="24" Style="{DynamicResource MainMenuButtonStyle}" FontFamily="{DynamicResource Pretendard_Bold}"/>
+        </Grid>
+        <Grid Grid.Column="5">
+            <Button x:Name="Main_Btn4" Content="설정" FontSize="24" Style="{DynamicResource MainMenuButtonStyle}" FontFamily="{DynamicResource Pretendard_Bold}"/>
+        </Grid>
+    </Grid>
+</UserControl>
