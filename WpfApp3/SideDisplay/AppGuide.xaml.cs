@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApp3
+namespace WpfApp3.SideDisplay
 {
     /// <summary>
-    /// Second_Content.xaml에 대한 상호 작용 논리
+    /// AppGuide.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class Second_Content : Window
+    public partial class AppGuide : UserControl
     {
-        public Second_Content()
+        public AppGuide()
         {
             InitializeComponent();
         }
