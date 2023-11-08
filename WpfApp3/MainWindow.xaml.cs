@@ -16,19 +16,45 @@ namespace WpfApp3
         public MainWindow()
         {
             InitializeComponent();
+            
             /*this.Loaded += MainWindow_Loaded;*/
 
+            Main_Btn1.Click += ShowScreen;
+            Main_Btn2.Click += ShowScreen;
+            Main_Btn3.Click += ShowScreen;
+            Main_Btn4.Click += ShowScreen;
+
         }
 
-        public void HandleAlarmButtonClick()
+
+        private void ShowScreen(object sender, RoutedEventArgs e)
         {
-            AddAlramPopup();
+
+            HIdeScreen();
+
+            switch(sender.ToString())
+            {
+                case "System.Windows.Controls.Button: 앱 가이드":
+                    AppGuide.Visibility = Visibility.Visible;                
+                    break;
+                case "System.Windows.Controls.Button: 알림 대시보드":
+                    AlramDashBoadrd.Visibility = Visibility.Visible;
+                    break;
+                case "System.Windows.Controls.Button: PC 사용 정보":
+                    PCUseInfo.Visibility = Visibility.Visible;
+                    break;
+                case "System.Windows.Controls.Button: 설정":
+                    Setting.Visibility = Visibility.Visible;
+                    break;
+            }
         }
-        public void AddAlramPopup()
+
+        private void HIdeScreen()
         {
-            AddAlramPopup addAlramPopup = new AddAlramPopup();
-            EffectPanel.Children.Clear();
-            EffectPanel.Children.Add(addAlramPopup);
+            AppGuide.Visibility = Visibility.Collapsed;
+            AlramDashBoadrd.Visibility = Visibility.Collapsed;
+            PCUseInfo.Visibility = Visibility.Collapsed;
+            Setting.Visibility = Visibility.Collapsed;
         }
     }
 }

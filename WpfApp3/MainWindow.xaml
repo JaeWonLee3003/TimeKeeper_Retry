@@ -11,27 +11,46 @@
     Height="800"
     Width="1200"
     >
-    
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="7*"/>
-            </Grid.RowDefinitions>
-        <Viewbox StretchDirection="DownOnly" Stretch="Fill">
-            <Grid x:Name="SideBar" Grid.Row="0">
-                <local:SideBar/>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Grid.ColumnSpan="2">
+                    <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock x:Name="TitleTextBlock" TextAlignment="Center" FontSize="20" Foreground="Black" Text="시간 지키미&#10;Time Keeper" FontFamily="{DynamicResource Pretendard_Bold}"/>
+                    </Border>
+                </Grid>
+                <Grid Grid.Column="2">
+                    <Button x:Name="Main_Btn1" Content="앱 가이드" FontSize="24" Style="{DynamicResource MainMenuButtonStyle}" FontFamily="{DynamicResource Pretendard_Bold}"/>
+                </Grid>
+                <Grid Grid.Column="3">
+                    <Button x:Name="Main_Btn2" Content="알림 대시보드" FontSize="24" Style="{DynamicResource MainMenuButtonStyle}" FontFamily="{DynamicResource Pretendard_Bold}"/>
+                </Grid>
+                <Grid Grid.Column="4">
+                    <Button x:Name="Main_Btn3" Content="PC 사용 정보" FontSize="24" Style="{DynamicResource MainMenuButtonStyle}" FontFamily="{DynamicResource Pretendard_Bold}"/>
+                </Grid>
+                <Grid Grid.Column="5">
+                    <Button x:Name="Main_Btn4" Content="설정" FontSize="24" Style="{DynamicResource MainMenuButtonStyle}" FontFamily="{DynamicResource Pretendard_Bold}"/>
+                </Grid>
             </Grid>
-        </Viewbox>
-            <Grid x:Name="MainWindows" Grid.Row="1">
-                <local:AppGuide x:Name="AppGuide" Visibility="Collapsed" Grid.ColumnSpan="2"/>
-                
-                    <local:AlarmDashBoard x:Name="AlaramDashBoadrd" Visibility="Visible" Grid.ColumnSpan="2"/>
-                
-                <local:PCUseInfo x:Name="PCUseInfo" Visibility="Visible" Grid.ColumnSpan="2"/>
-                <local:Setting x:Name="Setting" Visibility="Collapsed" Grid.ColumnSpan="2"/>
-            </Grid>
-            
-            <Grid x:Name="EffectPanel" Grid.Row="1" Visibility="Visible">
-            </Grid>
+        <Grid x:Name="MainWindows" Grid.Row="1">
+            <local:MainDisplay/>
+            <local:AppGuide x:Name="AppGuide" Visibility="Collapsed" Grid.ColumnSpan="2"/>
+            <local:AlramDashBoard x:Name="AlramDashBoadrd" Visibility="Collapsed" Grid.ColumnSpan="2"/>
+            <local:PCUseInfo x:Name="PCUseInfo" Visibility="Collapsed" Grid.ColumnSpan="2"/>
+            <local:Setting x:Name="Setting" Visibility="Collapsed" Grid.ColumnSpan="2"/>
         </Grid>
+        <Grid x:Name="EffectPanel" Grid.Row="1" Visibility="Visible" Panel.ZIndex="99">
+        </Grid>
+    </Grid>
 </Window>

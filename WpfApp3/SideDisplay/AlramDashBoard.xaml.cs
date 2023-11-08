@@ -19,13 +19,20 @@ namespace WpfApp3.SideDisplay
     /// <summary>
     /// AlarmDashBoard.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class AlarmDashBoard : UserControl
+    public partial class AlramDashBoard : UserControl
     {
 
-        public AlarmDashBoard()
+        public AlramDashBoard()
         {
             InitializeComponent();
-            AddAlarmButton.Click += MainWindow.AddAlramPopup();
+            AddAlarmButton.Click += AddAlramPopup;
+        }
+
+        SideDisplay.AddAlramPopup addAlramPopup;
+
+        private void AddAlramPopup(object sender, RoutedEventArgs e)
+        {
+            addAlramPopup = new SideDisplay.AddAlramPopup();
         }
     }
 }
